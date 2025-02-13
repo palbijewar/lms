@@ -1,10 +1,24 @@
-
+import {Route, Routes} from 'react-router-dom'
+import Home from './pages/student/Home'
+import CoursesList from './pages/student/CoursesList'
+import CourseDetails from './pages/student/CourseDetails'
+import MyEnrollements from './pages/student/MyEnrollements'
+import Player from './pages/student/Player'
+import Loading from './components/student/Loading'
 
 const App = () => {
   return (
-    <div>  <h1 className="text-3xl font-bold underline">
-    Hello world!
-  </h1></div>
+    <div>  
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/course-list' element={<CoursesList/>} />
+        <Route path='/course-list/:input' element={<CoursesList/>} />
+        <Route path='/course/:id' element={<CourseDetails/>} />
+        <Route path='/my-enrollements' element={<MyEnrollements/>} />
+        <Route path='/player/:courseId' element={<Player/>} />
+        <Route path='/loading/:path' element={<Loading/>} />
+      </Routes>
+    </div>
   )
 }
 
